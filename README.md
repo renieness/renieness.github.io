@@ -1,2 +1,2 @@
 # renieness.github.io
-my website
+Andreea Hrincu's website
