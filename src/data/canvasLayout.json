@@ -1,0 +1,47 @@
+{
+  "heading": {
+    "x": 0,
+    "y": 0
+  },
+  "me": {
+    "x": -290,
+    "y": 400,
+    "rotation": 8.44,
+    "draggable": false
+  },
+  "caseStudies": {
+    "feature_gate_thumb": {
+      "x": -530,
+      "y": -250,
+      "rotation": -14,
+      "draggable": false
+    },
+    "app_usage_thumb": {
+      "x": 630,
+      "y": -190,
+      "rotation": 18,
+      "draggable": false
+    },
+    "uno_thumb": {
+      "x": 390,
+      "y": 400,
+      "rotation": -6,
+      "draggable": false
+    }
+  },
+  "stickers": {
+    "sticker_big_ben":     { "x": -590, "y":  170, "draggable": true  },
+    "sticker_gym":         { "x":  120, "y":  630, "draggable": false },
+    "sticker_laptop":      { "x":  570, "y":  120, "draggable": false },
+    "sticker_opera_house": { "x":  -30, "y": -400, "draggable": true  },
+    "sticker_plant":       { "x":  170, "y":  320, "draggable": true  },
+    "sticker_reading":     { "x": -390, "y":  -30, "draggable": false },
+    "sticker_roo":         { "x": 850, "y":  650, "draggable": true  },
+    "sticker_sun":         { "x":  420, "y": -350, "draggable": true  }
+  },
+  "caseStudyStickers": {
+    "cs_1": { "x": -530, "y": -450, "draggable": false },
+    "cs_2": { "x":  620, "y": -400, "draggable": false },
+    "cs_3": { "x":  420, "y":  600, "draggable": false }
+  }
+}

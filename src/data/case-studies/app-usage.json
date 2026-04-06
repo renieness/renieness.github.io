@@ -1,0 +1,26 @@
+{
+  "title": "App Usage",
+  "intro": "I designed an experience that helps Jira Data Center admins see where third‑party apps are used. I partnered with engineering on feasibility, ran cross‑functional workshops to define the MVP, and led customer research with admins and TAMs to validate workflows. I mapped end‑to‑end flows, including edge cases, and aligned stakeholders via DACIs. The app launched with a 4/4 rating and ~2,000 installs.",
+  "accentColor": "#65d97d",
+  "responsibilities": [
+    "Workshop facilitation",
+    "Usability research",
+    "User journey mapping",
+    "High-fidelity designs",
+    "Prototyping"
+  ],
+  "objective": "To give administrators a way to monitor how their 3rd party marketplace apps are being used in Jira DC. The focus was to give them a sense of where apps are being used, rather than how they are being used.",
+  "objectiveImage": "app_usage_screenshot.png",
+  "approach": [
+    "Worked closely with feature lead developers to understand what data that could be collected and presented to administrators.",
+    "Ran a workshop with the cross-functional team to explore what the MVP could looks like, what information we want to show and how frequently to sample data.",
+    "Validated high-level concepts with 3 Technical Account Managers as proxys for DC Admins before beginning the ‘make’ phase of the project.",
+    "Conducted research with 8 customers to validate proposed high-level designs and whether they met requirements around app usage, as well as to understand how customers approached the problem today.",
+    "Mapped the flow of installation and usage of plugin, as well as error states and empty states."
+  ],
+  "preChallengessImage": "app_usage_flow.png",
+  "challenges": [
+    "It was difficult to surface high-level insights that showed whether an app was being used or not, in a meaningful way."
+  ],
+  "outcome":"Our app received 4/4 stars when we launched it and has ~2,000 installs to date."
+}

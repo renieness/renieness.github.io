@@ -1,0 +1,340 @@
+---
+import Layout from './Layout.astro';
+
+const {
+  title,
+  intro,
+  accentColor,
+  responsibilities,
+  objective,
+  objectiveImage,
+  objectiveImages,
+  approach,
+  preChallengessImage,
+  challenges,
+  outcome,
+} = Astro.props;
+
+const allImages = import.meta.glob('../assets/*.{png,jpg,jpeg,webp}', { eager: true });
+function resolveImage(filename: string | undefined | null) {
+  if (!filename) return null;
+  const entry = allImages[`../assets/${filename}`] as any;
+  return entry?.default ?? null;
+}
+
+// Support both single objectiveImage (legacy) and objectiveImages array
+const objImgFiles: string[] = objectiveImages ?? (objectiveImage ? [objectiveImage] : []);
+const objImgs = objImgFiles.map(resolveImage).filter(Boolean) as any[];
+const preChallengesImg = resolveImage(preChallengessImage);
+---
+
+<Layout>
+  <div class="cs-page" style={`--accent: ${accentColor}`}>
+
+    <header class="cs-hero">
+      <a href="/" class="cs-hero-back">← Back to home</a>
+      <h1 class="cs-hero-title">{title}</h1>
+    </header>
+
+    <div class="cs-body">
+
+      <aside class="cs-aside">
+        <p class="cs-intro">{intro}</p>
+        <div class="cs-responsibilities">
+          <p class="cs-tag">Responsibilities</p>
+          <ul>
+            {responsibilities.map((r: string) => <li>{r}</li>)}
+          </ul>
+        </div>
+      </aside>
+
+      <div class="cs-content">
+        <section class="cs-section">
+          <h2 class="cs-section-label">Objective</h2>
+          <p>{objective}</p>
+        </section>
+
+        {objImgs.length > 0 && (
+          <div class={`cs-image-row cs-image-row--${objImgs.length}`}>
+            {objImgs.map((img: any) => (
+              <img src={img.src} alt="" class="cs-inline-image" />
+            ))}
+          </div>
+        )}
+
+        <section class="cs-section">
+          <h2 class="cs-section-label">Approach</h2>
+          <div class="cs-approach-list">
+            {approach.map((item: any) => {
+              const text = typeof item === 'string' ? item : item.text;
+              const imgs: string[] = typeof item === 'string' ? [] : (item.images ?? []);
+              const resolvedImgs = imgs.map(resolveImage).filter(Boolean) as any[];
+              return (
+                <div class="cs-approach-block">
+                  <div class="cs-approach-item">
+                    <span class="cs-bullet-dot" aria-hidden="true">•</span>
+                    <p>{text}</p>
+                  </div>
+                  {resolvedImgs.map((img: any) => (
+                    <img src={img.src} alt="" class="cs-inline-image" />
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {preChallengesImg && (
+          <img src={preChallengesImg.src} alt="" class="cs-inline-image" />
+        )}
+
+        <section class="cs-section">
+          <h2 class="cs-section-label">Challenges</h2>
+          <ul class="cs-bullets">
+            {challenges.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section class="cs-section">
+          <h2 class="cs-section-label">Outcome</h2>
+          <p>{outcome}</p>
+        </section>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .cs-page {
+    min-height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  /* ── Hero ────────────────────────────────────────── */
+  .cs-hero {
+    padding: 64px clamp(24px, 7vw, 100px) 48px;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  .cs-hero-back {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 0 16px;
+    transition: opacity 0.2s ease;
+  }
+
+  .cs-hero-back:hover {
+    opacity: 0.65;
+  }
+
+  .cs-hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  /* ── Body ────────────────────────────────────────── */
+  .cs-body {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 0;
+    padding: 0 clamp(24px, 7vw, 100px);
+    align-items: start;
+  }
+
+  /* ── Aside ───────────────────────────────────────── */
+  .cs-aside {
+    padding: 56px 56px 80px 0;
+    border-right: 1px solid #ebebeb;
+    position: sticky;
+    top: 0;
+  }
+
+  .cs-intro {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0 0 48px;
+  }
+
+  .cs-responsibilities {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cs-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .cs-responsibilities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cs-responsibilities li {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .cs-responsibilities li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ── Content ─────────────────────────────────────── */
+  .cs-content {
+    padding: 56px 0 80px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .cs-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cs-section-label {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .cs-section p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0;
+  }
+
+  .cs-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cs-bullets li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .cs-bullets li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .cs-inline-image {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .cs-image-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cs-image-row--2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .cs-approach-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cs-approach-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 24px;
+  }
+
+  .cs-approach-item {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .cs-bullet-dot {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent);
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .cs-approach-item p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    margin: 0;
+  }
+
+  /* ── Responsive ──────────────────────────────────── */
+  @media (max-width: 768px) {
+    .cs-body {
+      grid-template-columns: 1fr;
+      padding: 0 24px;
+    }
+
+    .cs-aside {
+      padding: 40px 0 0;
+      border-right: none;
+      border-bottom: 1px solid #ebebeb;
+      padding-bottom: 40px;
+      position: static;
+    }
+
+    .cs-content {
+      padding: 40px 0 64px;
+    }
+  }
+</style>

@@ -1,0 +1,79 @@
+{
+  "name": "Andreea Hrincu",
+  "role": "UX Designer",
+  "bio": [
+    "Hi, I'm Andreea — a creative UX Designer passionate about building meaningful digital experiences.",
+    "I specialise in turning complex problems into clear, elegant solutions. I work across research, ideation, prototyping and delivery — taking joy in partnering closely with product and engineering to ship work.",
+    "I enjoy learning on the job and staying up to date with the latest ways of working. I take genuine pleasure in meeting the users of products I work on, and understanding frustrations they have with a product.", 
+    "I moved into UX design after completing a bachelor's degree in IT, which gives me a deep understanding of technical issues, the feasibility of my proposed designs and allows me to communicate well with developers.",
+    "I began my UX career at Westpac, working as an intern in their Digital Design team. From there, I went back to university to complete an Honours Degree in HCI and worked part time at an optimisation agency called 2DataFish. My first proper UX role was at NBN Co in the Digital Team, where I learnt about delivering in a SCRUM Agile way. I soon after moved to London, where I worked at an early-stage startup called BigSofa, and then at a prestigious scientific publisher called SpringerNature. Returning to Sydney, I've mostly been engaged in short term contracts with Avanade and Limepay, with a longer stint at uno home loans. In my free time, I worked on a side project called Swipes for Science, creating a responsive, citizen science game remotely. I took a contract role at Cochlear, and following that a role at Atlassian, where I am currently employed."
+  ],
+  "location": "Sydney, Australia",
+  "values": [
+    "User-centred thinking",
+    "Craft and attention to detail",
+    "Collaboration across disciplines",
+    "Experiment-driven design"
+  ],
+  "experience": [
+    {
+      "company": "Atlassian",
+      "role": "Product Designer",
+      "period": "Feb 2022 – present"
+    },
+    {
+      "company": "Cochlear",
+      "role": "UX Contractor",
+      "period": "Apr 2021 – Dec 2021"
+    },
+    {
+      "company": "Limepay",
+      "role": "UX Contractor",
+      "period": "Nov 2020 – Mar 2021"
+    },
+    {
+      "company": "uno home loans",
+      "role": "UX Designer",
+      "period": "Aug 2019 – Sep 2020"
+    },
+      {
+      "company": "Avanade",
+      "role": "UX Contractor",
+      "period": "Mar 2019 – May 2019"
+    },
+     {
+       "company": "SpringerNature",
+       "role": "UX Designer",
+       "period": "Mar 2017 – Sep 2018"
+     },
+     {
+       "company": "BigSofa",
+       "role": "UX Designer",
+       "period": "Sep 2014 – Jan 2017"
+     },
+     {
+       "company": "NBN Co",
+       "role": "UX Designer",
+       "period": "Feb 2013 – Jul 2014"
+     },
+     {
+       "company": "Swipes for Science (side project)",
+       "role": "UX Designer",
+       "period": "Oct 2018 – March 2019"
+     }
+  ],
+  "companyColors": {
+    "Westpac": "#d74848",
+    "2DataFish": "#58cfff",
+    "NBN Co": "#8cc625",
+    "BigSofa": "#409843",
+    "SpringerNature": "#19284f",
+    "Avanade": "#ff4e00",
+    "Limepay": "#d982b2",
+    "uno": "#1dc39f",
+    "Swipes for Science": "#5a40b0",
+    "Cochlear": "#d4a017",
+    "Atlassian": "#0052CC"
+  },
+  "accentColor": "#E8527A"
+}

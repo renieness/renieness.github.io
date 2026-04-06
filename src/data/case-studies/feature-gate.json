@@ -1,0 +1,47 @@
+{
+  "title": "Feature Gates",
+  "intro": "Working in a tight deadline, of 8 weeks, I helped deliver designs for the feature gate work by moving at speed and introducing growth concepts to the team. I sketched, ideated and iterated on designs to address our user' problem. I created user flows, prototypes and incorporated accessibility annotations, while meeting deadlines.",
+  "accentColor": "#b57bee",
+  "responsibilities": [
+    "Ideation sessions",
+    "Sketching",
+    "High-fidelity designs",
+    "Storyboarding",
+    "Presentation",
+    "Accessibility annotations",
+    "Prototyping"
+  ],
+  "objective": "To improve the way we block access to features in Atlassian Administration taking into account upselling motions, onboarding to new features and completing required steps.",
+  "objectiveImages": ["feature_gate_1.png", "feature_gate_2.png"],
+  "approach": [
+    {
+      "text": "Facilitated and ran a “How might we” ideation session with designers and PMs aiming to uncover existing knowledge about shortfalls in Atlassian Administration today.",
+      "images": ["feature_gate_3.png"]
+    },
+    {
+      "text": "Based on desk research, which uncovered best-practices for upselling and feature-gating, I came up with some quick ideas on what we could design to address some of the HMWs listed above.",
+      "images": ["feature_gate_4.png"]
+    },
+    {
+      "text": "Explored a variety of ideas, encompassing different states, centred around our 2 hypotheses.",
+      "images": ["feature_gate_5.png", "feature_gate_6.png"]
+    },
+    {
+      "text": "Created high-fidelity designs exploring various visual styles, design directions from various teams and incorporating 6 rounds of critique feedback.",
+      "images": ["feature_gate_7.png","feature_gate_8.png"]
+    },
+    {
+      "text": "Kickstarted our Regional Review presentation, leveraging storytelling skills acquired from a mentorship program. The process involved creating a story frame, refining it with input from a lead content designer, conducting 5 dry run sessions for feedback, designing the presentation slides with the latest branding, and presenting to 10 managers. Attendees' feedback included “Presentation was clear and concise. I appreciate the clarity” & “Well done! Great work and great preso. Very clear problem / context explanation from Andreea Hrincu”."
+    },
+    {
+      "text": "Advocated for an experiment-driven approach to our work after noticing how many directions we were exploring. I took the lead and took a stab at creating the hypotheses, taking them to the Experiment team office hours and then running them by the team to get success metrics. This really clarified how the work should be measured and what the changes were.",
+      "images": ["feature_gate_9.png"]
+    }
+  ],
+  "challenges": [
+    "There were so many approaches to take and ideas, it was difficult to converge on what to do next.",
+    "High visibility project that had the potential to impact a lot of pages, meaning there were many stakeholders to manage and to speak to."
+
+  ],
+  "outcome": "Feature gate work lost its Product Manager, so the experiment was never concluded."
+}

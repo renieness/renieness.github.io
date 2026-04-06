@@ -1,0 +1,35 @@
+{
+  "title": "Uno",
+  "intro": "I led a design project to boost retention and refinancing in the loanScore journey. Collaborating with PMs and designers, we defined key customer data, validated it with 6 refinance users, and mapped a new dashboard in the flow. I facilitated a 3 day cross-functional design sprint, testing 2 dashboard and onboarding patterns. I helped run subsequent usability tests and refined designs. The new experience improves the loanScore product, allows for a new refinance dashboard, enhances existing pages and enables targeted deep-linking for better conversion.",
+  "accentColor": "#d4a017",
+  "responsibilities": [
+    "Usability research",
+    "Customer journey mapping",
+    "Sketching",
+    "Design sprint facilitation"
+  ],
+  "objective": "Improve retention on loanScore product and and encourage customers to refinance. Our analysis saw that there was a 65% drop-of on the loanScore summary page, with only 22% of customers clicking on the main call to action.",
+  "objectiveImages": ["uno_1.png"],
+  "approach": [
+    {
+      "text": "Working with PM and fellow designers, we agreed on key data customers needed before validating it with users. The simplified flow below shows the new dashboard's place and contents.",
+      "images": ["uno_2.png"]
+    },
+    "Spoke to 6 refinancers about home loans and what information helped them stay on top of their loan. Learnt about their home loan journey and that it is basic information they need in order to feel on top of their home loan.",
+    "Organised the activities for a 3 day design sprint and facilitated its running. I wanted to ideate with colleagues from other parts of the business, and be able to validate ideas quickly. We thought about the future state of loanScore, and had similar goals for the design sprint, as for the entire project.",
+    {
+      "text": "Tested 2 InVision prototypes: 'Guided Path' with an empty dashboard landing page, and 'Dip-in-and-out'. Also tested 2 onboarding info methods: 'fill-in-the-blanks' and a single screen with all fields visible.",
+      "images": ["uno_3.png"]
+    },
+    "After the design sprint, we improved our designs based on feedback. We made main CTAs clearer, reduced colours, and grouped information better. We then ran usability testing and later an unmoderated usability test.",
+    {
+      "text": "The final iteration of the design focused on using hierarchy to tell a story, and gave the user actions to fall back on, as they scrolled down the page. Key callouts like speaking to a person always came up in user interviews, and so we added that option to the bottom of the page. We also brought forward our savings alert, as analysis showed customers that had this setting turned on, converted better.",
+      "images": ["uno_5.png"]
+    }
+],
+  "challenges": [
+    "We got a bit lost in the ideation phase, and it was difficult to start. Mapping out the flow of the customer journey really helped with this, as it gave us all an artifact to refer back to.",
+    "Our ways of working became a bit unclear, with objectives for the project merging with the need to create a dashboard. We had to take a step back and realign on priorities partway through the project."
+  ],
+  "outcome": "The loanScore project touched key pages on the refinance journey. It created a brand new dashboard for refinance customers to land back on, and improved the usability of existing pages. Mapping out the flow of the customer journey approach to this project was design-led, which has given uno peace of mind during development, as designs have been validated with representative users. The project is currently under development, and will have a test and learn release approach, with key KPIs being monitored."
+}

@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+import data from '../data/about.json';
+const { name, role, bio, location, values, experience, accentColor, companyColors } = data;
+
+// Pre-process bio paragraphs: replace company names with coloured spans
+function highlightCompanies(text: string): string {
+  if (!companyColors) return text;
+  // Sort by length descending so longer names match before substrings
+  const names = Object.keys(companyColors).sort((a, b) => b.length - a.length);
+  let result = text;
+  for (const name of names) {
+    const color = (companyColors as Record<string, string>)[name];
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(
+      new RegExp(escaped, 'g'),
+      `<span style="color:${color};font-weight:500">${name}</span>`
+    );
+  }
+  return result;
+}
+---
+
+<Layout>
+  <main class="about-page" style={`--accent: ${accentColor}`}>
+    <header class="about-hero">
+      <a href="/" class="back-link">← Back to home</a>
+      <h1 class="about-hero-title">{name}</h1>
+      {location && <p class="about-location">{location}</p>}
+    </header>
+
+    <div class="about-body">
+      <div class="about-bio">
+        {bio.map((paragraph: string) => <p set:html={highlightCompanies(paragraph)} />)}
+      </div>
+
+      <div class="about-meta">
+        {values && values.length > 0 && (
+          <div class="about-block">
+            <p class="about-block-label">Values</p>
+            <ul>
+              {values.map((v: string) => <li>{v}</li>)}
+            </ul>
+          </div>
+        )}
+
+        {experience && experience.length > 0 && (
+          <div class="about-block">
+            <p class="about-block-label">Experience</p>
+            <ul class="about-experience">
+              {experience.map((e: { company: string; role: string; period: string }) => (
+                <li>
+                  <span class="exp-company">{e.company}</span>
+                  <span class="exp-role">{e.role}</span>
+                  <span class="exp-period">{e.period}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .about-page {
+    min-height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 0 16px;
+    transition: opacity 0.2s ease;
+  }
+
+  .back-link:hover {
+    opacity: 0.65;
+  }
+
+  .about-hero {
+    padding: 32px clamp(24px, 7vw, 100px) 48px;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  .about-hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: #1a1a1a;
+    margin: 0 0 12px;
+  }
+
+  .about-location {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+  }
+
+  .about-body {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 0;
+    padding: 56px clamp(24px, 7vw, 100px) 80px;
+    align-items: start;
+  }
+
+  .about-bio {
+    padding-right: 64px;
+    border-right: 1px solid #ebebeb;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-bio p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0;
+  }
+
+  .about-meta {
+    padding-left: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .about-block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .about-block-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .about-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-block li {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .about-block li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .about-experience {
+    gap: 16px !important;
+  }
+
+  .about-experience li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 0 !important;
+  }
+
+  .about-experience li::before {
+    display: none !important;
+  }
+
+  .exp-company {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .exp-role {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .exp-period {
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  @media (max-width: 768px) {
+    .about-body {
+      grid-template-columns: 1fr;
+      padding: 40px 24px 64px;
+    }
+
+    .about-bio {
+      padding-right: 0;
+      border-right: none;
+      border-bottom: 1px solid #ebebeb;
+      padding-bottom: 40px;
+    }
+
+    .about-meta {
+      padding-left: 0;
+      padding-top: 40px;
+    }
+  }
+</style>
